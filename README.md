@@ -2,6 +2,8 @@
 
 FormCollection is a simple javascript plugin to create forms from templates and send the input data as an input array with a custom prefix.
 
+[Online test](https://mitridates.github.io/FormCollection/test/index.html)
+
 ## Installation
 
 Download and include as javascript module and use an index.js to create an instance:
