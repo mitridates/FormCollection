@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Form Collection plugin</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://use.fontawesome.com/791f5b60fb.js"></script>
+</head>
+<body>
+    
+    <div style="padding: 3em 2em;">
+        <h4><a href="https://www.scribbr.com/citation/generator/" target="_blank">Inspired on Scribbr citation generator</a></h4>
+
+        <div class="row"> 
+            <div class="col-md-6">
+                <!--Wrapper contains Dataset to create FormCollection.config-->
+                <!--Wrapper has container and buttons HTMLElements -->
+                <div class="py-2 contributors-wrapper" 
+                    data-prefix="contributor"
+                    data-navbar="#template-bar"
+                    data-container=".contributors"
+                    data-buttons=".js-clone_button"
+                    >
+                    <!--Container to render new HTMLElement with form-->
+                    <div class="contributors border rounded  border-grey"></div>
+            
+                    <!--Buttons to add new form/s to container -->
+                    <div class="p-2">
+                        <!--Each button has dataset type & template. .js-clone_button is defined in wrapper dataset-->
+                        <button type="button" 
+                        data-type="person"
+                        data-template="#template-person"
+                        class="js-clone_button btn btn-light border-dark"><i class="fa fa-user" ></i>&nbsp;&nbsp;Add person</button>
+        
+                        <button 
+                        data-type="org"
+                        data-template="#template-org"
+                        type="button" class="js-clone_button btn btn-light border-dark"><i class="fa fa-building"></i>&nbsp;&nbsp;Add organisation</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+    
+                <!--Wrapper contains Dataset to create FormCollection.config-->
+                <!--Wrapper has container and buttons HTMLElements -->
+                <div class="py-2 comment-wrapper" 
+                    data-prefix="comment"
+                    data-navbar="#template-bar"
+                    data-container=".comments"
+                    data-buttons=".js-clonner"
+                    >
+                    <!--Container to render new HTMLElement with form-->
+                    <div class="comments border rounded  border-grey"></div>
+            
+                    <!--Buttons to add new form/s to container -->
+                    <div class="p-2">
+                        <!--Each button has dataset type & template. .js-clone_button is defined in wrapper dataset-->
+                        <button type="button" 
+                        data-template="#template-comment"
+                        class="js-clonner btn btn-light border-dark"><i class="fa fa-comment" ></i>&nbsp;&nbsp;Add comment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+    
+    <!--Templates can be inserted in any place-->
+    <!--Common navbar template to add in all templates. Classes .js-xxx are important for events-->
+    <template id="template-bar">
+        <div class="js-cbar  d-flex flex-row bg-light">
+            <div class="p-1"><button type="button" class="btn m-0 p-0 js-trash" style="line-height: 0em;"><i class="fa fa-trash"></i></button></div>
+            <div class="py-2 flex-grow-1 js-cbar_txt" style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis; cursor:pointer"></div>
+            <div class="p-1" data-arrow="down"><button type="button" class="btn m-0 p-0 js-down" style="line-height: 0em;"><i class="fa fa-arrow-down" aria-hidden="true"></i></button></div>
+            <div class="p-1" data-arrow="up"><button type="button" class="btn m-0 p-0 js-up" style="line-height: 0em;"><i class="fa fa-arrow-up" aria-hidden="true"></i></button></div>
+            <div class="p-1"><button type="button" class="btn m-0 p-0 js-toggler" style="line-height: 0em;"><i class="fa fa-angle-down"></i></button></div>
+        </div>
+    </template>
+    <!--end common navbar-->
+    
+    <!--Organisation template.  ID is defined in button dataset -->
+    <template id="template-org">
+        <div class="border border-grey">
+            <!--Form wrapper -->
+            <div class="js-cform">
+                <div  class="row m-2">
+                    <div class="col-md-3">
+                        Name
+                    </div>
+                    <div class="col-md">
+                        <input data-name="name" class="form-control" value="">
+                    </div>
+                </div>
+    
+                <div  class="row m-2">
+                    <div class="col-md-3">
+                        Screen name
+                    </div>
+                    <div class="col-md">
+                        <input data-name="screenname" class="form-control" value="">
+                    </div>
+                </div>
+    
+                <div  class="row m-2">
+                    <div class="col-md-3">
+                        Role
+                    </div>
+                    <div class="col-md">
+                        <select data-name="role" tabindex="-1" class="form-control">
+                            <option value="author">Author</option>
+                            <option value="editor">Editor</option>
+                            <option value="translator">Translator</option>
+                            <option disabled style="color: grey;">other</option>
+                            <option value="container-author">Author of container </option>
+                            <option value="director">Director</option>
+                            <option value="illustrator">Illustrator</option>
+                            <option value="interviewer">Interviewer</option>
+                            <option value="uploader">Uploader</option>
+                        </select>
+                    </div>
+                    <input data-name="type" hidden  class="form-control" value="org">
+                </div>
+            </div>
+            <!--End form wrapper -->
+        </div>
+    </template>
+    <!--end Organisation template-->
+
+    <!--Person template.  ID is defined in button dataset -->
+    <template id="template-person">
+        <div class="border border-grey">
+            <!--Form wrapper -->
+            <div class="js-cform">
+                <div  class="row m-2">
+                    <div class="col-md-3">
+                        Title
+                    </div>
+                    <div class="col-md">
+                        <input data-name="title"  class="form-control" value="">
+                    </div>
+                </div>
+    
+                <div  class="row m-2">
+                    <div class="col-md-3">
+                        Initials
+                    </div>
+                    <div class="col-md">
+                        <input data-name="initials" class="form-control" value="">
+                    </div>
+                </div>
+    
+                <div  class="row m-2">
+                    <div class="col-md-3">
+                        First name(s)
+                    </div>
+                    <div class="col-md">
+                        <input data-name="firstname" class="form-control" value="">
+                    </div>
+                </div>
+    
+                <div  class="row m-2">
+                    <div class="col-md-3">
+                        Infix
+                    </div>
+                    <div class="col-md">
+                        <input data-name="infix" class="form-control" value="">
+                    </div>
+                </div>
+    
+                <div  class="row m-2">
+                    <div class="col-md-3">
+                        Last name
+                    </div>
+                    <div class="col-md">
+                        <input data-name="lastname" class="form-control" value="">
+                    </div>
+                </div>
+    
+                <div  class="row m-2">
+                    <div class="col-md-3">
+                        Suffix
+                    </div>
+                    <div class="col-md">
+                        <input data-name="suffix" class="form-control" value="">
+                    </div>
+                </div>
+    
+                <div  class="row m-2">
+                    <div class="col-md-3">
+                        Screen name
+                    </div>
+                    <div class="col-md">
+                        <input data-name="screenname" class="form-control" value="">
+                    </div>
+                </div>
+    
+                <div  class="row m-2">
+                    <div class="col-md-3">
+                        Role
+                    </div>
+                    <div class="col-md">
+                        <select data-name="role" tabindex="-1" class="form-control">
+                            <option value="author">Author</option>
+                            <option value="editor">Editor</option>
+                            <option value="translator">Translator</option>
+                            <option disabled style="color: grey;">other</option>
+                            <option value="container-author">Author of container </option>
+                            <option value="director">Director</option>
+                            <option value="illustrator">Illustrator</option>
+                            <option value="interviewer">Interviewer</option>
+                            <option value="uploader">Uploader</option>
+                        </select>
+                    </div>
+                    <input data-name="type" hidden class="form-control" value="person">
+    
+                </div>
+            </div>
+            <!--End form wrapper -->
+        </div>
+    </template>
+    <!--end Person template-->
+
+     
+    <!--Comment template.  ID is defined in button dataset -->
+    <template id="template-comment">
+        <div class="border border-grey">
+            <!--Form wrapper -->
+            <div class="js-cform">
+                <div  class="row m-2">
+                    <div class="col-md-3">
+                        Comment
+                    </div>
+                    <div class="col-md">
+                        <input data-name="comment" class="form-control" value="">
+                    </div>
+                </div>
+    
+    
+                <div  class="row m-2">
+                    <div class="col-md-3">
+                        Comment type
+                    </div>
+                    <div class="col-md">
+                        <select data-name="role" tabindex="-1" class="form-control">
+                            <option value="suggest">Sugggest</option>
+                            <option value="complaint">Complaint</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--End form wrapper -->
+        </div>
+    </template>
+    <!--end Organisation template-->
+<script type="module" src="index.js"></script>
+</body>
+</html>
