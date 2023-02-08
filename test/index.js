@@ -31,7 +31,7 @@ let contributor= new FormCollection('.contributors-wrapper', {
     }
 });
 
-contributor.populate(JSON.parse('[{"role":"editor","type":"person","initials":"F","lastname":"L\u00f3pez","firstname":"Fernando","screenname":"mitridates"},{"name":"Federaci\u00f3n de Espeleolog\u00eda de la Región de Murcia","role":"editor","type":"org","screenname":"FERM"}]'));
+contributor.populate(JSON.parse('[{"role":"editor","type":"person","initials":"J","lastname":"Doe","firstname":"John","screenname":"mitridates"},{"name":"Federaci\u00f3n de Espeleolog\u00eda de la Región de Murcia","role":"editor","type":"org","screenname":"FERM"}]'));
 
 let comment= new FormCollection('.comment-wrapper', {
     /**
@@ -62,4 +62,4 @@ let comment= new FormCollection('.comment-wrapper', {
     }   
 });
 
-comment.populate(JSON.parse('[{"role":"complaint","comment":"The soup is cold"},{"role":"suggest","comment":"This is a suggestion"}]'));
+comment.populate(JSON.parse('[{"role":"complaint","comment":"The soup is cold!"},{"role":"complaint","comment":"The salad is hot!"},{"role":"suggest","comment":"This is a suggestion"}]'));
