@@ -74,7 +74,7 @@ This is the template for the navbar. The classnames .js-xxx are important. The f
 ```
 
 This is the template for the form:
-- All inputs must have a data-name, this will be rendered as <input name="prefix[index][name]">.
+- All inputs must have a data-name, this will be used in input name as name="prefix[nodeIndex][name]".
 - .js-cform is the selector that contains the inputs. 
 
 ```html
