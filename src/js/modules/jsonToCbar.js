@@ -21,7 +21,7 @@ export default function jsonToCbar(json, elm)
 
    if(out.length){
         cbar.title= title.join(' ');
-        cbar.innerHTML=out.join(' ');
+        cbar.innerHTML=out.join('. ');
    }
    
 }

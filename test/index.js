@@ -63,3 +63,6 @@ let comment= new FormCollection('.comment-wrapper', {
 });
 
 comment.populate(JSON.parse('[{"role":"complaint","comment":"The soup is cold!"},{"role":"complaint","comment":"The salad is hot!"},{"role":"suggest","comment":"This is a suggestion"}]'));
+
+new FormCollection('.list-wrapper');
+

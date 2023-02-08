@@ -13,12 +13,13 @@
 <body>
     
     <div style="padding: 3em 2em;">
-        <h5><a href="https://www.scribbr.com/citation/generator/" target="_blank">Inspired on Scribbr citation generator</a> 
-            <a target="_blank" href="https://github.com/mitridates/FormCollection/">FormCollection In Github</a>
+        <h5 class="text-center py-3">Inspired on Scribbr <a href="https://www.scribbr.com/citation/generator/" target="_blank">citation generator</a>. 
+            FormCollection In <a target="_blank" href="https://github.com/mitridates/FormCollection/">Github</a>
         </h5>
 
         <div class="row"> 
             <div class="col-md-6">
+                <h6>Two forms with a hidden field "type", navbar as template</h6>
                 <!--Wrapper contains Dataset to create FormCollection.config-->
                 <!--Wrapper has container and buttons HTMLElements -->
                 <div class="py-2 contributors-wrapper" 
@@ -47,7 +48,7 @@
             </div>
 
             <div class="col-md-6">
-    
+                <h6>One form without field name="type", navbar as template</h6>
                 <!--Wrapper contains Dataset to create FormCollection.config-->
                 <!--Wrapper has container and buttons HTMLElements -->
                 <div class="py-2 comment-wrapper" 
@@ -71,6 +72,38 @@
         </div>
      </div>
     
+
+
+     <div class="row"> 
+        <div class="col-md-6">
+        </div>
+
+        <div class="col-md-6">
+            <h6>One form without field "type". Navbar inside form template</h6>
+            <!--Wrapper contains Dataset to create FormCollection.config-->
+            <!--Wrapper has container and buttons HTMLElements  -->
+            <!--Navbar is inside template so no need of data-navbar -->
+
+            <div class="py-2 list-wrapper" 
+                data-prefix="list"
+                data-container=".list"
+                data-buttons=".js-list"
+                >
+                <!--Container to render new HTMLElement with form-->
+                <div class="list border rounded  border-grey"></div>
+        
+                <!--Buttons to add new form/s to container -->
+                <div class="p-2">
+                    <!--Each button has dataset type & template. .js-clone_button is defined in wrapper dataset-->
+                    <button type="button" 
+                    data-template="#template-list"
+                    class="js-list btn btn-light border-dark"><i class="fa fa-list" ></i>&nbsp;&nbsp;Add something to the list</button>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+
     <!--Templates can be inserted in any place-->
     <!--Common navbar template to add in all templates. Classes .js-xxx are important for events-->
     <template id="template-bar">
@@ -258,7 +291,49 @@
             <!--End form wrapper -->
         </div>
     </template>
-    <!--end Organisation template-->
+    <!--end Comment template-->
+
+        
+    <!--List template.  ID is defined in button dataset -->
+    <template id="template-list">
+        <div class="border border-grey">
+        <!--Navbar inside template -->
+        <div class="js-cbar  d-flex flex-row bg-light">
+            <div class="p-1"><button type="button" class="btn m-0 p-0 js-trash" style="line-height: 0em;"><i class="fa fa-trash"></i></button></div>
+            <div class="py-2 flex-grow-1 js-cbar_txt" style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis; cursor:pointer"></div>
+            <div class="p-1" data-arrow="down"><button type="button" class="btn m-0 p-0 js-down" style="line-height: 0em;"><i class="fa fa-arrow-down" aria-hidden="true"></i></button></div>
+            <div class="p-1" data-arrow="up"><button type="button" class="btn m-0 p-0 js-up" style="line-height: 0em;"><i class="fa fa-arrow-up" aria-hidden="true"></i></button></div>
+            <div class="p-1"><button type="button" class="btn m-0 p-0 js-toggler" style="line-height: 0em;"><i class="fa fa-angle-down"></i></button></div>
+        </div>
+        <!--Navbar-->
+            <!--Form wrapper -->
+            <div class="js-cform">
+                <div  class="row m-2">
+                    <div class="col-md-3">
+                        List of something
+                    </div>
+                    <div class="col-md">
+                        <input data-name="list" class="form-control" value="">
+                    </div>
+                </div>
+    
+    
+                <div  class="row m-2">
+                    <div class="col-md-3">
+                        Action type
+                    </div>
+                    <div class="col-md">
+                        <select data-name="action" tabindex="-1" class="form-control">
+                            <option value="todo">Todo</option>
+                            <option value="done">Done</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!--End form wrapper -->
+        </div>
+    </template>
+    <!--end Comment template-->
 <script type="module" src="index.js"></script>
 </body>
 </html>

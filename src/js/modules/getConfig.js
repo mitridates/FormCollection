@@ -36,7 +36,7 @@ export default function getConfig(w, params)
     });
 
     if(!config.inputPrefix) throw new Error(`Prefix is null`);
-    if(!config.navbarTemplate) throw new Error(`navbar is null`);
+    if(!config.navbarTemplate) console.warn(`navbar is null`);
     if(!config.container) throw new Error(`Container is null`);
     if(!config.buttons.length) throw new Error(`Buttons is null`);
     return config;    

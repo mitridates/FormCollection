@@ -7,9 +7,19 @@ export default function createNodeFromTemplate(config, btn)
 {
     
     let 
-        ctemplate=  btn.template.content.firstElementChild.cloneNode(true),
-        cbar=  config.navbarTemplate.content.firstElementChild.cloneNode(true)
+        tplNode=  btn.template.content.firstElementChild.cloneNode(true),
+        tplNavbar=  config.navbarTemplate
         ;
-        ctemplate.insertBefore(cbar, ctemplate.firstChild);//add control bar to node
-        return ctemplate;    
+        
+        if(!tplNavbar){//navbar in form template?
+            if(!btn.template.content.querySelector('.js-cbar')){
+                throw Error(`Could\'n find navbar for ${config.inputPrefix}.`)
+            }
+        }else{
+            tplNavbar= config.navbarTemplate.content.firstElementChild.cloneNode(true)
+            tplNode.insertBefore(tplNavbar, tplNode.firstChild);//add control bar to node
+        }
+        
+
+        return tplNode;    
 }
