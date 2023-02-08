@@ -1,6 +1,7 @@
 /**
  * Clone template and add a new node to container
  * @param {Object} config FormCollection.config
+ * @param {Object} btn Button config (trigger button, template...)
  * @returns {HTMLElement}
  */
 export default function createNodeFromTemplate(config, btn)
