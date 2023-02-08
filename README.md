@@ -34,7 +34,7 @@ Create an html wrapper with this dataset:
 Inside container define de button/s with the previous class selector and this dataset:
 
 - data-template: Template for this button
-
+- data-type: Only if uses more than one form (with multiple buttons). See test/index.html.
 ```html
     <!--Wrapper contains Dataset to create FormCollection.config-->
     <!--Wrapper has container and buttons HTMLElements -->
