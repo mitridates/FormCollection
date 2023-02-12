@@ -7,42 +7,49 @@ import modInputNames from './modInputNames.js';
  */
 export default function addButtonEvents(elm, config)
 {
-    let remover= function(ev)
-    {
-        let container= config.container;
-        container.removeChild(this.elm);
-        if(container.children.length)
+    let 
+        remover= function(ev)
         {
-            showArrows(container);
-            modInputNames(config);
-        }        
-    };
+            let container= config.container;
+            container.removeChild(this.elm);
+            if(container.children.length)
+            {
+                showArrows(container);
+                modInputNames(config);
+            }        
+        },
+        toggler= elm.querySelector('.js-nav_toggler'),
+        trash= elm.querySelector('.js-nav_trash'),
+        up= elm.querySelector('.js-nav_up'),
+        down= elm.querySelector('.js-nav_down'),
+        txt= elm.querySelector('.js-nav_txt'),
+        form= elm.querySelector('.js-form'),
+        rotate= 'fa-rotate-180'        
+        ;
 
-    elm.querySelector('.js-trash').addEventListener('click', remover.bind({elm: elm}));
+    trash.addEventListener('click', remover.bind({elm: elm}));
 
-    elm.querySelector('.js-toggler').addEventListener('click', (ev)=>{
+    toggler.addEventListener('click', (ev)=>{
         
-        let 
-            angle= ev.currentTarget.querySelector('.fa'),
-            rotate= 'fa-rotate-180'
-            ;
+        let angle= ev.currentTarget.querySelector('.fa-angle-down');
+            
         if(angle.classList.contains(rotate)){
             angle.classList.remove(rotate)
-            elm.querySelector('.js-cform').style.display='inline'
+            form.style.display='inline'
         }else{
             angle.classList.add(rotate)
-            elm.querySelector('.js-cform').style.display='none'
+            form.style.display='none'
         }
     });
 
-    elm.querySelector('.js-cbar_txt').addEventListener('click', (ev)=>{
-        elm.querySelector('.js-toggler').click();
+    txt.addEventListener('click', (ev)=>{
+        toggler.click();
     });
 
-    elm.querySelector('.js-up').addEventListener('click', (ev)=>{
+    up.addEventListener('click', (ev)=>{
         moveElment(elm, false, config);
     });
-    elm.querySelector('.js-down').addEventListener('click', (ev)=>{
+    down.addEventListener('click', (ev)=>{
         moveElment(elm, true, config);
     });
 }

@@ -6,14 +6,14 @@ let contributor= new FormCollection('.contributors-wrapper', {
      * @param {Object} json Form to json 
      * @param {HTMLElement} elm Current wrapper for this form
      */
-    jsonToCbar: function(json, elm){
+    jsonToNavbar: function(json, elm){
         let 
         fields= {
             person: 'title firstname initials infix lastname suffix screenname'.split(' '),
             org: 'name screenname'.split(' ')
         }, 
         out=[],
-        cbar= elm.querySelector('.js-cbar_txt');
+        navTxt= elm.querySelector('.js-nav_txt');
         
     fields[json['type']].forEach(el=>{
         if (json[el]) 
@@ -27,7 +27,7 @@ let contributor= new FormCollection('.contributors-wrapper', {
         }
     });
     
-    if(out.length)cbar.title= cbar.innerHTML=out.join('');
+    if(out.length)navTxt.title= navTxt.innerHTML=out.join('');
     }
 });
 
@@ -46,7 +46,7 @@ let comment= new FormCollection('.comment-wrapper', {
         {
             node: '.js-clonner',
             template: '#template-comment',
-            //jsonToCbar: function(json, elm){...}//custom callback for this button
+            //jsonToNavbar: function(json, elm){...}//custom callback for this button
         }
     ],
     /**
@@ -55,11 +55,11 @@ let comment= new FormCollection('.comment-wrapper', {
      * @param {Object} json Form to json 
      * @param {HTMLElement} elm Current wrapper for this form
      */
-    jsonToCbar: function(json, elm){//default callback for all buttons
+    jsonToNavbar: function(json, elm){//default callback for all buttons
         let 
         fields= ['comment', 'role'], 
         out=[],
-        cbar= elm.querySelector('.js-cbar_txt');
+        navTxt= elm.querySelector('.js-nav_txt');
         
     fields.forEach(el=>{
         if (json[el]) 
@@ -73,7 +73,7 @@ let comment= new FormCollection('.comment-wrapper', {
         }
     });
     
-    if(out.length)cbar.title= cbar.innerHTML=out.join(' ');
+    if(out.length)navTxt.title= navTxt.innerHTML=out.join(' ');
     }   
 });
 

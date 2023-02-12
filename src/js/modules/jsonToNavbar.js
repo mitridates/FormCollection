@@ -3,12 +3,12 @@
  * @param {Object} json Serialized form
  * @param {HTMLElement} elm Current form wrapper
  */
-export default function jsonToCbar(json, elm)
+export default function jsonToNavbar(json, elm)
 {
     let     
         out=[],
         title=[],
-        cbar= elm.querySelector('.js-cbar_txt')
+        navTxt= elm.querySelector('.js-nav_txt')
         ;
     
     for(let i in json)
@@ -20,7 +20,7 @@ export default function jsonToCbar(json, elm)
     }
 
    if(out.length){
-        cbar.title= cbar.innerHTML=out.join('. ');
+    navTxt.title= navTxt.innerHTML=out.join('. ');
    }
    
 }

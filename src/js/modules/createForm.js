@@ -13,7 +13,7 @@ export default function createForm(btn, config)
     let newForm= createNodeFromTemplate(config, btn); 
     config.container.appendChild(newForm)
     addButtonEvents(newForm, config);
-    addFieldsEvents(newForm, btn.jsonToCbar);
+    addFieldsEvents(newForm, btn.jsonToNavbar);
     showArrows(config.container);
     modInputNames(config);
     return newForm;

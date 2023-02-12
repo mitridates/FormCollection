@@ -1,4 +1,4 @@
-import jsonToCbar from './jsonToCbar.js'
+import jsonToNavbar from './jsonToNavbar.js'
 import formToJson from './formToJson.js'
 
 /**
@@ -16,7 +16,7 @@ export default function addFieldsEvents(elm, callback)
             if(callback){
                 callback(formToJson(elm), elm);
             }else{
-                jsonToCbar(formToJson(elm), elm);
+                jsonToNavbar(formToJson(elm), elm);
             }
         });
 

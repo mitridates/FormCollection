@@ -65,7 +65,7 @@ FormCollection.prototype.populate= function (data){
 
         let newForm= createForm(button, this.config);//create HTMLElement from template
 
-        newForm.querySelector('.js-toggler').click();//Toggle (close)
+        newForm.querySelector('.js-nav_toggler').click();//Toggle (close)
 
         newForm.querySelectorAll('input, select').forEach(/**@param {HTMLElement} el*/el => {//set form values
             let name= el.dataset.name
@@ -74,7 +74,7 @@ FormCollection.prototype.populate= function (data){
         });
 
         
-        button.jsonToCbar(json, newForm);//Values to string in buttons bar
+        button.jsonToNavbar(json, newForm);//Values to string in buttons bar
     })
 }
 

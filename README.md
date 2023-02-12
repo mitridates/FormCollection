@@ -2,11 +2,7 @@
 
 FormCollection is a simple javascript plugin to create partial forms from templates and send the input data as an input array with a custom prefix.
 
-Bootstrap is used for the grid system. The code use fontawesome icons class names to trigger events or efects (toggle visibility, delete node, etc.) in the navbar template, so you may change the code and template navbar to use another library.
-
-For a more complex example go to [Online test in github pages](https://mitridates.github.io/FormCollection/test/index.html)
-
-
+Examples in [Online test in github pages](https://mitridates.github.io/FormCollection/test/index.html)
 
 ## Installation
 
@@ -14,17 +10,10 @@ Download and include as javascript module
 ```javascript
 //index.js
 import FormCollection from "../src/js/modules/FormCollection.mod.1.0.0.js";
-let contributor= new FormCollection('.comment-wrapper');
-
-//inline
-    <script type="module">
-        import formCollection from "bundles/FormCollection/src/js/modules/FormCollection.mod.1.0.0.js')}}";
-        let contributor= new formCollection('.comment-wrapper');
-    </script>
 ```
 
 ## Usage
-Create an html wrapper with this dataset:
+With dataset (also as second argument in example):
     
 - data-prefix: the prefix for input fields.
 - data-navbar: selector for navbar template. if it is not defined, the navbar must exists in the form. 
@@ -57,32 +46,31 @@ Inside container define de button/s with the previous class selector and this da
     </div>
 ```
 
-This is the template for the navbar. The classnames .js-xxx are important. The fontawesome icons are used to trigger events.
+The template for navbar.
 
 ```html
     <!--Common navbar template to add in all templates. Classes .js-xxx are important for events-->
     <template id="template-bar">
-        <div class="js-cbar  d-flex flex-row bg-light">
-            <div class="p-1"><button type="button" class="btn m-0 p-0 js-trash" style="line-height: 0em;"><i class="fa fa-trash"></i></button></div>
-            <div class="py-2 flex-grow-1 js-cbar_txt" style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis; cursor:pointer"></div>
-            <div class="p-1" data-arrow="down"><button type="button" class="btn m-0 p-0 js-down" style="line-height: 0em;"><i class="fa fa-arrow-down" aria-hidden="true"></i></button></div>
-            <div class="p-1" data-arrow="up"><button type="button" class="btn m-0 p-0 js-up" style="line-height: 0em;"><i class="fa fa-arrow-up" aria-hidden="true"></i></button></div>
+        <div class="js-nav  d-flex flex-row bg-light">
+            <div class="p-1"><button type="button" class="btn m-0 p-0 js-nav_trash" style="line-height: 0em;"><i class="fa fa-trash"></i></button></div>
+            <div class="py-2 flex-grow-1 js-nav_txt" style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis; cursor:pointer"></div>
+            <div class="p-1" data-arrow="down"><button type="button" class="btn m-0 p-0 js-nav_down" style="line-height: 0em;"><i class="fa fa-arrow-down" aria-hidden="true"></i></button></div>
+            <div class="p-1" data-arrow="up"><button type="button" class="btn m-0 p-0 js-nav_up" style="line-height: 0em;"><i class="fa fa-arrow-up" aria-hidden="true"></i></button></div>
             <div class="p-1"><button type="button" class="btn m-0 p-0 js-toggler" style="line-height: 0em;"><i class="fa fa-angle-down"></i></button></div>
         </div>
     </template>
     <!--end common navbar-->
 ```
 
-This is the template for the form:
+The template for the form:
 - All inputs must have a data-name, this will be used in input name as name="prefix[nodeIndex][name]".
-- .js-cform is the selector that contains the inputs. 
 
 ```html
     <!--Comment template.  ID is defined in button dataset -->
     <template id="template-comment">
         <div class="border border-grey">
             <!--Form wrapper -->
-            <div class="js-cform">
+            <div class="js-form">
                 <div  class="row m-2">
                     <div class="col-md-3">
                         Comment
@@ -112,9 +100,9 @@ This is the template for the form:
 
 The javascript part is simple. Create an instance with the wrapper selector as argument.
 
-- Add a jsonToCbar function to control the string rendered in navbar ( in .js-cbar_txt) on  addEventListener("...", jsonToCbar).
+- Add a jsonToNavbar function to show a custom string in .js-nav>.js-nav_txt.
 
-- Use the instance to load previous data (json in mysql for example).
+- Load previous data if required (mysql json field for example).
 
 ```javascript
 
@@ -125,11 +113,11 @@ let comment= new FormCollection('.comment-wrapper', {
      * @param {Object} json Form to json 
      * @param {HTMLElement} elm Current wrapper for this form
      */
-    jsonToCbar: function(json, elm){
+    jsonToNavbar: function(json, elm){
         let 
         fields= ['comment', 'role'], 
         out=[],
-        cbar= elm.querySelector('.js-cbar_txt');
+        navTxt= elm.querySelector('.js-nav_txt');
         
     fields.forEach(el=>{
         if (json[el]) 
@@ -143,7 +131,7 @@ let comment= new FormCollection('.comment-wrapper', {
         }
     });
     
-    if(out.length)cbar.title= cbar.innerHTML=out.join(' ');
+    if(out.length)navTxt.title= navTxt.innerHTML=out.join(' ');
     }   
 });
 //Add previous data to the container

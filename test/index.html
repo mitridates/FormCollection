@@ -134,12 +134,12 @@
     <!--Templates can be inserted in any place-->
     <!--Common navbar template to add in all templates. Classes .js-xxx are important for events-->
     <template id="template-navbar">
-        <div class="js-cbar  d-flex flex-row bg-light">
-            <div class="p-1"><button type="button" class="btn m-0 p-0 js-trash" style="line-height: 0em;"><i class="fa fa-trash"></i></button></div>
-            <div class="py-2 flex-grow-1 js-cbar_txt" style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis; cursor:pointer"></div>
-            <div class="p-1" data-arrow="down"><button type="button" class="btn m-0 p-0 js-down" style="line-height: 0em;"><i class="fa fa-arrow-down" aria-hidden="true"></i></button></div>
-            <div class="p-1" data-arrow="up"><button type="button" class="btn m-0 p-0 js-up" style="line-height: 0em;"><i class="fa fa-arrow-up" aria-hidden="true"></i></button></div>
-            <div class="p-1"><button type="button" class="btn m-0 p-0 js-toggler" style="line-height: 0em;"><i class="fa fa-angle-down"></i></button></div>
+        <div class="js-nav  d-flex flex-row bg-light">
+            <div class="p-1"><button type="button" class="btn m-0 p-0 js-nav_trash" style="line-height: 0em;"><i class="fa fa-trash"></i></button></div>
+            <div class="py-2 flex-grow-1 js-nav_txt" style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis; cursor:pointer"></div>
+            <div class="p-1" data-arrow="down"><button type="button" class="btn m-0 p-0 js-nav_down" style="line-height: 0em;"><i class="fa fa-arrow-down" aria-hidden="true"></i></button></div>
+            <div class="p-1" data-arrow="up"><button type="button" class="btn m-0 p-0 js-nav_up" style="line-height: 0em;"><i class="fa fa-arrow-up" aria-hidden="true"></i></button></div>
+            <div class="p-1"><button type="button" class="btn m-0 p-0 js-nav_toggler" style="line-height: 0em;"><i class="fa fa-angle-down"></i></button></div>
         </div>
     </template>
     <!--end common navbar-->
@@ -148,7 +148,7 @@
     <template id="template-org">
         <div class="border border-grey">
             <!--Form wrapper -->
-            <div class="js-cform">
+            <div class="js-form">
                 <div  class="row m-2">
                     <div class="col-md-3">
                         Name
@@ -196,7 +196,7 @@
     <template id="template-person">
         <div class="border border-grey">
             <!--Form wrapper -->
-            <div class="js-cform">
+            <div class="js-form">
                 <div  class="row m-2">
                     <div class="col-md-3">
                         Title
@@ -291,7 +291,7 @@
     <template id="template-comment">
         <div class="border border-grey">
             <!--Form wrapper -->
-            <div class="js-cform">
+            <div class="js-form">
                 <div  class="row m-2">
                     <div class="col-md-3">
                         Comment
@@ -325,16 +325,16 @@
     <template id="template-list">
         <div class="border border-grey">
         <!--Navbar inside template -->
-        <div class="js-cbar  d-flex flex-row bg-light">
-            <div class="p-1"><button type="button" class="btn m-0 p-0 js-trash" style="line-height: 0em;"><i class="fa fa-trash"></i></button></div>
-            <div class="py-2 flex-grow-1 js-cbar_txt" style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis; cursor:pointer"></div>
-            <div class="p-1" data-arrow="down"><button type="button" class="btn m-0 p-0 js-down" style="line-height: 0em;"><i class="fa fa-arrow-down" aria-hidden="true"></i></button></div>
-            <div class="p-1" data-arrow="up"><button type="button" class="btn m-0 p-0 js-up" style="line-height: 0em;"><i class="fa fa-arrow-up" aria-hidden="true"></i></button></div>
-            <div class="p-1"><button type="button" class="btn m-0 p-0 js-toggler" style="line-height: 0em;"><i class="fa fa-angle-down"></i></button></div>
+        <div class="js-nav  d-flex flex-row bg-light">
+            <div class="p-1"><button type="button" class="btn m-0 p-0 js-nav_trash" style="line-height: 0em;"><i class="fa fa-trash"></i></button></div>
+            <div class="py-2 flex-grow-1 js-nav_txt" style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis; cursor:pointer"></div>
+            <div class="p-1" data-arrow="down"><button type="button" class="btn m-0 p-0 js-nav_down" style="line-height: 0em;"><i class="fa fa-arrow-down" aria-hidden="true"></i></button></div>
+            <div class="p-1" data-arrow="up"><button type="button" class="btn m-0 p-0 js-nav_up" style="line-height: 0em;"><i class="fa fa-arrow-up" aria-hidden="true"></i></button></div>
+            <div class="p-1"><button type="button" class="btn m-0 p-0 js-nav_toggler" style="line-height: 0em;"><i class="fa fa-angle-down"></i></button></div>
         </div>
         <!--Navbar-->
             <!--Form wrapper -->
-            <div class="js-cform">
+            <div class="js-form">
                 <div  class="row m-2">
                     <div class="col-md-3">
                         List of something

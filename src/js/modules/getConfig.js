@@ -1,8 +1,9 @@
-import jsonToCbar from "./jsonToCbar.js";
+import jsonToNavbar from "./jsonToNavbar.js";
+
 /**
  * Create the FormCollection.config object
  * @param {HTMLElement} w Wrapper 
- * @param {Object} params Second argument in FormCollection. Used only to fill with text the control bar is exists.
+ * @param {Object} params Second argument in FormCollection. Used only to fill with text the control navbar is exists.
  * @return {Object}
  */
 export default function getConfig(w, params)
@@ -55,17 +56,17 @@ export default function getConfig(w, params)
                     node: (b.nodeType)? b : config.wrapper.querySelector(b.node),
                     type: (b.nodeType)? b.dataset.type : b.type,
                     template: document.querySelector((b.nodeType)? b.dataset.template : b.template)
-                    //jsonToCbar: (!b.nodeType && b.hasOwnProperty('jsonToCbar'))? b.jsonToCbar : jsonToCbar,
+                    //jsonToNavbar: (!b.nodeType && b.hasOwnProperty('jsonToNavbar'))? b.jsonToNavbar : jsonToNavbar,
                 };
                 
                 let tpl= (b.nodeType)? b.dataset.template : b.template;
 
                 bttn['template']=  document.querySelector(tpl)
 
-                bttn.jsonToCbar = (()=>{
-                    if(!b.nodeType && b.hasOwnProperty('jsonToCbar')) return b['jsonToCbar']
-                    if(params && params.hasOwnProperty('jsonToCbar')) return params['jsonToCbar']
-                    return jsonToCbar;
+                bttn.jsonToNavbar = (()=>{
+                    if(!b.nodeType && b.hasOwnProperty('jsonToNavbar')) return b['jsonToNavbar']
+                    if(params && params.hasOwnProperty('jsonToNavbar')) return params['jsonToNavbar']
+                    return jsonToNavbar;
                 })();
 
                 if(!bttn.type) console.warn(`Button type is null for ${w}`);

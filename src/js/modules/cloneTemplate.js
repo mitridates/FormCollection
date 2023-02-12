@@ -12,7 +12,7 @@ export default function createNodeFromTemplate(config, btn)
         ;
         
         if(!tplNavbar){//navbar in form template?
-            if(!btn.template.content.querySelector('.js-cbar')){
+            if(!btn.template.content.querySelector('.js-nav')){
                 throw Error(`Could\'n find navbar for ${config.prefix}.`)
             }
         }else{
