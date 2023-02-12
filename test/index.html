@@ -13,13 +13,45 @@
 <body>
     
     <div style="padding: 3em 2em;">
-        <h5 class="text-center py-3">Inspired on Scribbr <a href="https://www.scribbr.com/citation/generator/" target="_blank">citation generator</a>. 
-            FormCollection In <a target="_blank" href="https://github.com/mitridates/FormCollection/">Github</a>
-        </h5>
+        
+       
+       <div id="postdata" style="  margin: auto;
+            width: 80%;
+            border: 3px solid green;
+            padding: 10px;">  
+    
+            <h5 style="text-align: center;">Post data</h5>
 
+            
+            <div class="list-group">
+                <span class="list-group-item list-group-item-action flex-column align-items-start">
+                    <h6 class="mb-1 text-center">Contributor:</h6>
+                  <div class="d-flex w-100 justify-content-between js-listContributor"></div>
+                </span>
+
+                <span class="list-group-item list-group-item-action flex-column align-items-start">
+                    <h6 class="mb-1 text-center">Comment:</h6>
+                  <div class="d-flex w-100 justify-content-between js-listComment"></div>
+                </span>
+
+
+                <span class="list-group-item list-group-item-action flex-column align-items-start">
+                    <h6 class="mb-1 text-center">Todo:</h6>
+                  <div class="d-flex w-100 justify-content-between js-listTodo"></div>
+                </span>
+            </div>
+        </div>
+
+        <h5 class="text-center py-3">Inspired on Scribbr <a href="https://www.scribbr.com/citation/generator/" target="_blank">citation generator</a>. 
+
+            FormCollection In <a target="_blank" href="https://github.com/mitridates/FormCollection/">Github</a></h5>
+
+<form method="post" id="formCollection">
+    
+    <input type="submit" class="btn btn-success"  value="Submit form"/>
         <div class="row"> 
             <div class="col-md-6">
-                <h6>Two forms with a hidden field "type", navbar as template</h6>
+                <h6>Two forms with a hidden field "type", navbar as as detached template. Config in dataset</h6>
                 <!--Wrapper contains Dataset to create FormCollection.config-->
                 <!--Wrapper has container and buttons HTMLElements -->
                 <div class="py-2 contributors-wrapper" 
@@ -48,7 +80,7 @@
             </div>
 
             <div class="col-md-6">
-                <h6>One form without field name="type". navbar as template. Config as argument.</h6>
+                <h6>One form without field name="type". navbar as detached template. Config as argument.</h6>
                 <!--Wrapper contains Dataset to create FormCollection.config-->
                 <!--Wrapper has container and buttons HTMLElements -->
                 <div class="py-2 comment-wrapper">
@@ -72,12 +104,12 @@
         </div>
 
         <div class="col-md-6">
-            <h6>One form without field "type". Navbar inside form template</h6>
+            <h6>One form without field "type". Config in dataset. Navbar inside form template</h6>
             <!--Wrapper contains Dataset to create FormCollection.config-->
             <!--Wrapper has container and buttons HTMLElements  -->
             <!--Navbar is inside template so no need of data-navbar -->
 
-            <div class="py-2 list-wrapper" 
+            <div class="py-2 todolist-wrapper" 
                 data-prefix="list"
                 data-container=".list"
                 data-buttons=".js-list"
@@ -90,12 +122,14 @@
                     <!--Each button has dataset type & template. .js-clone_button is defined in wrapper dataset-->
                     <button type="button" 
                     data-template="#template-list"
-                    class="js-list btn btn-light border-dark"><i class="fa fa-list" ></i>&nbsp;&nbsp;Add something to the list</button>
+                    class="js-list btn btn-light border-dark"><i class="fa fa-list" ></i>&nbsp;&nbsp;Add something to do</button>
                 </div>
             </div>
         </div>
     </div>
  </div>
+
+</form>
 
     <!--Templates can be inserted in any place-->
     <!--Common navbar template to add in all templates. Classes .js-xxx are important for events-->
