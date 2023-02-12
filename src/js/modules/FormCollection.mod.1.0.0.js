@@ -8,12 +8,12 @@ import getConfig from "./getConfig.js";
  * @param {Object} args Config arguments. At the moment only to fill the Control bar on 'input' events
 
  */
-export default function FormCollection(w, args) {
+export default function FormCollection(w, params) {
 
     /**
      * Set config from dataset 
      */
-    let config = this.config= getConfig(w, args);
+    let config = this.config= getConfig(w, params);
 
     config.buttons.forEach((b)=>{
         b.node.addEventListener('click', (ev) => {
@@ -83,7 +83,7 @@ FormCollection.prototype.populate= function (data){
  */
 FormCollection.prototype.copyToLocalStorage= function ()
 {
-    localStorage.setItem(`${this.config.inputPrefix}Storage`, this.serialize());
+    localStorage.setItem(`${this.config.prefix}Storage`, this.serialize());
 }
 
 /**
@@ -91,5 +91,5 @@ FormCollection.prototype.copyToLocalStorage= function ()
  */
 FormCollection.prototype.pasteFromLocalStorage= function ()
 {
-    this.populate(JSON.parse(localStorage.getItem(`${this.config.inputPrefix}Storage`)||[]));
+    this.populate(JSON.parse(localStorage.getItem(`${this.config.prefix}Storage`)||[]));
 }

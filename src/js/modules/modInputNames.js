@@ -7,7 +7,7 @@ export default function modInputNames(config)
     Array.from(config.container.children).forEach((child , i)=>{
 
         child.querySelectorAll('input, select').forEach(elm => {
-            elm.name = `${config.inputPrefix}[${i}][${elm.dataset.name}]`;
+            elm.name = `${config.prefix}[${i}][${elm.dataset.name}]`;
         })
 
     })

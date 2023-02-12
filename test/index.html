@@ -24,7 +24,7 @@
                 <!--Wrapper has container and buttons HTMLElements -->
                 <div class="py-2 contributors-wrapper" 
                     data-prefix="contributor"
-                    data-navbar="#template-bar"
+                    data-navbar="#template-navbar"
                     data-container=".contributors"
                     data-buttons=".js-clone_button"
                     >
@@ -48,24 +48,17 @@
             </div>
 
             <div class="col-md-6">
-                <h6>One form without field name="type", navbar as template</h6>
+                <h6>One form without field name="type". navbar as template. Config as argument.</h6>
                 <!--Wrapper contains Dataset to create FormCollection.config-->
                 <!--Wrapper has container and buttons HTMLElements -->
-                <div class="py-2 comment-wrapper" 
-                    data-prefix="comment"
-                    data-navbar="#template-bar"
-                    data-container=".comments"
-                    data-buttons=".js-clonner"
-                    >
+                <div class="py-2 comment-wrapper">
                     <!--Container to render new HTMLElement with form-->
                     <div class="comments border rounded  border-grey"></div>
             
                     <!--Buttons to add new form/s to container -->
                     <div class="p-2">
                         <!--Each button has dataset type & template. .js-clone_button is defined in wrapper dataset-->
-                        <button type="button" 
-                        data-template="#template-comment"
-                        class="js-clonner btn btn-light border-dark"><i class="fa fa-comment" ></i>&nbsp;&nbsp;Add comment</button>
+                        <button type="button" class="js-clonner btn btn-light border-dark"><i class="fa fa-comment" ></i>&nbsp;&nbsp;Add comment</button>
                     </div>
                 </div>
             </div>
@@ -106,7 +99,7 @@
 
     <!--Templates can be inserted in any place-->
     <!--Common navbar template to add in all templates. Classes .js-xxx are important for events-->
-    <template id="template-bar">
+    <template id="template-navbar">
         <div class="js-cbar  d-flex flex-row bg-light">
             <div class="p-1"><button type="button" class="btn m-0 p-0 js-trash" style="line-height: 0em;"><i class="fa fa-trash"></i></button></div>
             <div class="py-2 flex-grow-1 js-cbar_txt" style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis; cursor:pointer"></div>

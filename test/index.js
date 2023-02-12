@@ -39,6 +39,15 @@ let contributor= new FormCollection('.contributors-wrapper', {
 contributor.populate(JSON.parse('[{"role":"editor","type":"person","initials":"J","lastname":"Doe","firstname":"John","screenname":"mitridates"},{"name":"Federaci\u00f3n de Espeleolog\u00eda de la Región de Murcia","role":"editor","type":"org","screenname":"FERM"}]'));
 
 let comment= new FormCollection('.comment-wrapper', {
+    prefix: 'comment',
+    navbar:'#template-navbar',
+    container:'.comments',
+    buttons:[
+        {
+            node: '.js-clonner',
+            template: '#template-comment',
+        }
+    ],
     /**
      * Fill with a string the current Control bar on 'input' events.
      * The fallback join all fields with spaces
